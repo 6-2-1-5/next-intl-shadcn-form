@@ -1,0 +1,28 @@
+{
+    "name": "next-intl-shadcn-form",
+    "version": "1.0.0",
+    "description": "Translate error messages from Shadcn forms using next-intl",
+    "main": "lib/index.js",
+    "types": "lib/index.d.ts",
+    "scripts": {
+        "build": "tsc",
+        "prepare": "npm run build"
+    },
+    "keywords": [
+        "next-intl",
+        "shadcn",
+        "form",
+        "errors",
+        "translation"
+    ],
+    "author": "Gruszht6215",
+    "license": "MIT",
+    "peerDependencies": {
+        "next-intl": "^3.20.0"
+    },
+    "devDependencies": {
+        "@types/react": "^18.3.9",
+        "next-intl": "^3.20.0",
+        "typescript": "^5.6.2"
+    }
+}
