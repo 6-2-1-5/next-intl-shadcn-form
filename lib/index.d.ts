@@ -1,3 +1,4 @@
+import React from "react";
 import { TranslationValues, Formats, RichTranslationValues } from 'next-intl';
 type ReactNode = React.ReactNode | readonly React.ReactNode[];
 type NextIntlTranslationFunctionBase = {
