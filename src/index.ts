@@ -1,37 +1,29 @@
-import React from "react";
+import React, { ReactNodeArray } from "react";
 import {
     TranslationValues,
     Formats,
     RichTranslationValues
 } from 'next-intl';
 
-// Define a more flexible ReactNode type
-type ReactNode = React.ReactNode | readonly React.ReactNode[];
-
-type NextIntlTranslationFunctionBase = {
+// Define a type that matches the structure of the next-intl translation function
+type NextIntlTranslationFunction = {
     <TargetKey extends string>(
         key: TargetKey,
         values?: TranslationValues,
         formats?: Partial<Formats>
     ): string;
-};
-
-type NextIntlTranslationFunctionExtensions = {
-    rich?<TargetKey extends string>(
+    rich<TargetKey extends string>(
         key: TargetKey,
         values?: RichTranslationValues,
         formats?: Partial<Formats>
-    ): string | React.ReactElement | ReactNode;
-    markup?<TargetKey extends string>(
+    ): string | React.ReactElement<any, string | React.JSXElementConstructor<any>> | ReactNodeArray;
+    markup<TargetKey extends string>(
         key: TargetKey,
         values?: TranslationValues,
         formats?: Partial<Formats>
     ): string;
-    // Add any other optional methods here
+    // Add any other overloads that next-intl's translation function might have
 };
-
-// Define a type that matches the structure of the next-intl translation function
-export type NextIntlTranslationFunction = NextIntlTranslationFunctionBase & NextIntlTranslationFunctionExtensions;
 
 // Serialize the translation call to a string
 export function serializeTranslationCall(key: string, values?: TranslationValues): string {
